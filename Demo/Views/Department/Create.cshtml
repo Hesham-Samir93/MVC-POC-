@@ -1,0 +1,34 @@
+﻿@model Demo.BL.Model.DepartmentVM;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="right_col" role="main">
+
+    <br /><br /><br /><br /><br />
+    <div>@ViewBag.ex</div>
+    <br /><br />
+          <form class="form-group" asp-controller="Department" asp-action="Create">
+              <label asp-for="Name">Department Name </label>
+              <input type="text" class="form-control" asp-for="Name" />
+              <span class="text-danger" asp-validation-for="Name"></span>
+              <br />
+              <label asp-for="Code">Department Code </label>
+              <input type="text" class="form-control" asp-for="Code" />
+              <span class="text-danger" asp-validation-for="Code"></span>
+              <br />
+              <input type="submit" value="Save" class="btn btn-success" />
+              <input type="reset" value="Cancle" class="btn btn-danger" />
+              <a asp-controller="Home" asp-action="Index" class="btn btn-info" > Back</a>
+              
+
+
+          </form>
+</div>
+
+
+@section validation{
+
+    <script src="~/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/vendors/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

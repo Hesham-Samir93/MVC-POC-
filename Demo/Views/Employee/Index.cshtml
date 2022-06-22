@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Demo.BL.Model.EmployeeVM>;
+
+@{
+    ViewBag.Title = "Employee";
+}
+<style>
+    th, tr {
+        text-align: center !important;
+    }
+</style>
+
+
+<div class="right_col" role="main">
+    <h2 class="h1"> Welcome To Employee Page </h2>
+    <br />
+    <a class="btn btn-dark text-dark" asp-controller="Employee" asp-action="Create">Create Employee +</a>
+    <br />
+    @*<form class="form-group" asp-controller="Employee" asp-action="Index">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input placeholder="Search by Name" class="form-control" name="SearchValue" />
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" value="Search" class="btn btn-info" />
+
+                </div>
+
+            </div>
+        </div>
+    </form>*@
+
+    </br></br>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead class="mainColor ">
+                                <th>Employee ID</th>
+                                <th>Employee Name</th>
+                                <th>Employee Salary</th>
+                                <th>Details</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Salary</td>
+                                            <td><a asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details </a></td>
+                                            <td><a asp-controller="Employee" asp-action="Edite" asp-route-id="@item.Id" class="btn btn-info">Edite</a></td>
+                                            <td><a asp-controller="Employee" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete </a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section DataTables {
+
+    <link href="~/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
+@section DataTableJS {
+    <script src="~/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="~/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/datatables/js/dataTables.bootstrap.min.js"></script>
+
+
+    <script>
+
+
+        $(function () {
+            $('.js-basic-example').DataTable({
+                responsive: true,
+                paging: true,
+                pageLength: 5,
+                bSort: true,
+                bFilter: true,
+                //bLengthChange: false,
+                //bInfo: false,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+
+            });
+
+            var table = $('.js-basic-example').DataTable();
+
+
+
+        });
+    </script>
+
+}

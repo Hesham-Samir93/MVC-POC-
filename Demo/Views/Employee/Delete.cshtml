@@ -1,0 +1,65 @@
+﻿@model Demo.BL.Model.EmployeeVM;
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="right_col" role="main">
+
+
+    <br /><br /><br />
+    <h2 class="h1">Delete Employee</h2>
+
+
+    <br />
+    <form class="form-group" asp-controller="Employee" asp-action="Delete">
+
+        <label asp-for="Id">ID </label>
+        <input disabled type="text" class="form-control" asp-for="Id" />
+        <br />
+        <label asp-for="Name">Name </label>
+        <input disabled type="text" class="form-control" asp-for="Name" />
+        <br />
+        <label asp-for="Salary">Salary </label>
+        <input disabled type="text" class="form-control" asp-for="Salary" />
+        <br />
+
+        <label asp-for="DepartmentId">Department</label>
+        <input disabled type="text" class="form-control" value="@ViewBag.DeptName.Name" asp-for="DepartmentId" />
+
+
+
+        <br />
+
+        <label asp-for="HireDate">Hiring date </label>
+        <input disabled type="date" class="form-control" asp-for="HireDate" />
+        <br />
+
+
+        <label asp-for="IsActive">Is Active</label>
+        <input disabled type="text" class="form-control" asp-for="IsActive" />
+        <br />
+
+        <label asp-for="Email">Email </label>
+        <input disabled type="text" class="form-control" asp-for="Email" />
+        <br />
+
+        <label asp-for="Address">Address</label>
+        <input disabled type="text" class="form-control" asp-for="Address" />
+        <br />
+
+        <label asp-for="Notes">Notes</label>
+        <textarea disabled type="text" class="form-control" asp-for="Notes"></textarea>
+        <br />
+
+
+
+
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-info"> Back</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <br /><br /><br /><br />
+
+    </form>
+
+</div>
+
+

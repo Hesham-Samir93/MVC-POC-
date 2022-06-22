@@ -1,0 +1,29 @@
+﻿@model Demo.BL.Model.DepartmentVM;
+@{
+    ViewBag.Title= "Details";
+}
+
+<div class="right_col" role="main">
+
+
+    <br /><br /><br /><br /><br />
+
+    <br /><br />
+    <label asp-for="ID">Department Name </label>
+    <input disabled type="text" class="form-control" asp-for="ID" />
+    <br />
+    <label asp-for="Name">Department Name </label>
+    <input disabled type="text" class="form-control" asp-for="Name" />
+    <br />
+    <label asp-for="Code">Department Code </label>
+    <input disabled type="text" class="form-control" asp-for="Code" />
+    <br />
+
+    <a asp-controller="Department" asp-action="Index" class="btn btn-info"> Back</a>
+
+
+
+
+</div>
+
+
